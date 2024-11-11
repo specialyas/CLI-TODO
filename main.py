@@ -2,26 +2,32 @@
 # write to a file
 
 # variable to store task
-# increament id
+# increment id
 # save date
 # variable to status
 
+import datetime
 import json
 
+# receive user input and continuously save in a file until user quits
 
-# receive user input and continously save in a file until user quits
-
+date_created = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Format date and time as a string
+date_updated = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Format date and time as a string
+task_id = 1
+task_description = input("Enter task description: ")
 
 tasks = [{
-    "id": 1,
-    "description": "the first task",
+    "id": task_id,
+    "description": task_description,
     "status": "todo",
-    "createdAt": "now",
-    "updatedAt": "now",
+    "createdAt": date_created,
+    "updatedAt": date_updated,
 }]
-filename = 'data.json'
-with open(filename, 'w') as f_obj:
+
+filename = 'data2.json'
+with open(filename, 'a') as f_obj:
     json.dump(tasks, f_obj)
+
 
 
 
@@ -57,18 +63,5 @@ with open(filename, 'w') as f_obj:
 # id: A unique identifier for the task
 # description: A short description of the task
 # status: The status of the task(todo, in -progress, done)
-# createdAt: The
-# date and time
-# when
-# the
-# task
-# was
-# created
-# updatedAt: The
-# date and time
-# when
-# the
-# task
-# was
-# last
-# updated
+# createdAt: The date and time when the task was created
+# updatedAt: The date and time when the task was last updated
