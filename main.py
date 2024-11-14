@@ -11,52 +11,28 @@ import json
 
 # receive user input and continuously save in a file until user quits
 
-date_created = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Format date and time as a string
-date_updated = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Format date and time as a string
-task_id = 1
-task_description = input("Enter task description: ")
-
-tasks = [{
-    "id": task_id,
-    "description": task_description,
-    "status": "todo",
-    "createdAt": date_created,
-    "updatedAt": date_updated,
-}]
-
-filename = 'data2.json'
-with open(filename, 'a') as f_obj:
-    json.dump(tasks, f_obj)
 
 
 
 
-# update a task
-# append
-# to
-# a
-# file
+# update a task append to a file
 #
 # mark in progress
 # ???
 #
-# list
-# all
-# tasks
+# list all tasks
 # read
 # contents
 # of
 # the
 # file
 #
-# task
-# status
+# task status
 # done
 # todo
 # in -progress
 #
-# tasks
-# properties
+# tasks properties
 #
 
 
