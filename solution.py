@@ -37,6 +37,7 @@ def add_task(description):
     save_tasks(tasks)
     print(f"Task added successfully with (ID: {task['id']})")
 
+
 # use the task id to update the task description
 def update_task(task_id, description):
     tasks = load_tasks()
@@ -49,6 +50,7 @@ def update_task(task_id, description):
             return
         print(f"Task {task_id} not found")
 
+
 # use the id to delete a task
 def delete_task(task_id):
     tasks = load_tasks()
@@ -57,6 +59,7 @@ def delete_task(task_id):
     print(f"Task with id {task_id} has been deleted")
 
 
+# use the id to change task status
 def mark_task(task_id, status):
     tasks = load_tasks()
     for task in tasks:
@@ -66,7 +69,17 @@ def mark_task(task_id, status):
             save_tasks(tasks)
             print(f"Task {task_id} marked as {status}")
             return
-        print(f"Task {task_id} not found")
+    print(f"Task {task_id} not found")
+
+
+#  Lists tasks, optionally filtering by status
+def list_tasks(status=None):
+    tasks = load_tasks()
+    for task in tasks:
+        if status is None or task['status'] == status:
+            print(
+                f"ID: {task['id']} || Description: {task['description']} || status: {task['status']} || Created At: {task['createdAt']} || Updated At: {task['updatedAt']}   ")
+
 
 def main():
     if len(sys.argv) < 2:
@@ -85,6 +98,12 @@ def main():
     elif command == 'mark-in-progress':
         task_id = int(sys.argv[2])
         mark_task(task_id, "in-progress")
+    elif command == 'list':
+        if len(sys.argv) > 2:
+            status = sys.argv[2]
+            list_tasks(status)
+        else:
+            list_tasks()
     elif command == 'delete':
         task_id = int(sys.argv[2])
         delete_task(task_id)

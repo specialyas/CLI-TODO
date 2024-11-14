@@ -9,8 +9,22 @@
     {
         "id": 3,
         "description": "the is the other task now",
-        "status": "todo",
+        "status": "in-progress",
         "createdAt": "2024-11-14T03:52:33.426753",
-        "updatedAt": "2024-11-14T04:27:40.729706"
+        "updatedAt": "2024-11-14T04:57:07.907099"
+    },
+    {
+        "id": 3,
+        "description": "first one in the bag",
+        "status": "todo",
+        "createdAt": "2024-11-14T04:57:38.815009",
+        "updatedAt": "2024-11-14T04:57:38.815009"
+    },
+    {
+        "id": 4,
+        "description": "second",
+        "status": "todo",
+        "createdAt": "2024-11-14T04:57:59.544424",
+        "updatedAt": "2024-11-14T04:57:59.544424"
     }
 ]
