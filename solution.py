@@ -45,6 +45,16 @@ def delete_task(task_id):
     print(f"Task with id {task_id} has been deleted")
 
 
+def mark_task(task_id, status):
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == task_id:
+            task['status'] = status
+            task['updatedAt'] = datetime.now().isoformat()
+            save_tasks(tasks)
+            print(f"Task {task_id} marked as {status}")
+            return
+        print(f"Task {task_id} not found")
 
 def main():
     if len(sys.argv) < 2:
