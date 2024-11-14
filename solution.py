@@ -37,6 +37,18 @@ def add_task(description):
     save_tasks(tasks)
     print(f"Task added successfully with (ID: {task['id']})")
 
+# use the task id to update the task description
+def update_task(task_id, description):
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == task_id:
+            task['description'] = description
+            task['updatedAt'] = datetime.now().isoformat()
+            save_tasks(tasks)
+            print(f"Task {task_id} updated successfully")
+            return
+        print(f"Task {task_id} not found")
+
 # use the id to delete a task
 def delete_task(task_id):
     tasks = load_tasks()
